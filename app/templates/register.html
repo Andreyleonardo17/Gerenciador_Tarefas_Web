@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cadastro - TaskFlow</title>
+  <style>
+    :root {
+      --primary: #ff7a00;
+      --secondary: #1e1e2f;
+      --light: #ffffff;
+      --overlay: rgba(0, 0, 0, 0.6);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      color: var(--light);
+      background-image: url('https://images.unsplash.com/photo-1521790945508-bf2a36314e85');
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .overlay {
+      background-color: var(--overlay);
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 0;
+    }
+
+    .form-container {
+      position: relative;
+      z-index: 1;
+      background-color: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 40px;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: var(--primary);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    .input-group {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      padding: 10px;
+      width: 100%;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: var(--light);
+    }
+
+    input[type="text"]::placeholder,
+    input[type="password"]::placeholder {
+      color: #ccc;
+    }
+
+    .toggle-password {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      width: 20px;
+      height: 20px;
+      fill: #ccc;
+    }
+
+    input[type="submit"] {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: 12px;
+      font-size: 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #e36800;
+      transform: scale(1.03);
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay"></div>
+  <div class="form-container">
+    <h1>Crie sua conta</h1>
+    <form action="" method="post">
+      <label for="nomeForm">Nome:</label>
+      <div class="input-group">
+        <input type="text" name="nomeForm" id="nomeForm" placeholder="Seu nome" required>
+      </div>
+
+      <label for="emailForm">Email:</label>
+      <div class="input-group">
+        <input type="text" name="emailForm" id="emailForm" placeholder="seu@email.com" required>
+      </div>
+
+      <label for="senhaForm">Senha:</label>
+      <div class="input-group">
+        <input type="password" name="senhaForm" id="senhaForm" placeholder="Crie uma senha" required>
+        <svg class="toggle-password" onclick="togglePassword('senhaForm', this)" viewBox="0 0 24 24">
+          <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/>
+          <circle cx="12" cy="12" r="3"/>
+        </svg>
+      </div>
+
+      <label for="confirmacaoForm">Confirmar senha:</label>
+      <div class="input-group">
+        <input type="password" name="confirmacaoForm" id="confirmacaoForm" placeholder="Repita a senha" required>
+        <svg class="toggle-password" onclick="togglePassword('confirmacaoForm', this)" viewBox="0 0 24 24">
+          <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/>
+          <circle cx="12" cy="12" r="3"/>
+        </svg>
+      </div>
+
+      <input type="submit" value="Cadastrar">
+    </form>
+  </div>
+
+  <script>
+    function togglePassword(id, icon) {
+      const field = document.getElementById(id);
+      const isVisible = field.type === "text";
+      field.type = isVisible ? "password" : "text";
+
+      // alternar entre olho aberto e cortado
+      icon.innerHTML = isVisible
+        ? `<path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/>`
+        : `<path d="M17.94 17.94A10.94 10.94 0 0 1 12 19c-7 0-11-7-11-7a21.57 21.57 0 0 1 5.17-5.57M9.88 9.88A3 3 0 0 1 14.12 14.12M1 1l22 22"/>`;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TaskFlow - Organize sua vida</title>
+  <style>
+    :root {
+      --primary: #ff7a00;
+      --secondary: #1e1e2f;
+      --light: #ffffff;
+      --overlay: rgba(0, 0, 0, 0.6);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      color: var(--light);
+      background-image: url('https://images.unsplash.com/photo-1557683316-973673baf926'); /* imagem de fundo sutil */
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .overlay {
+      background-color: var(--overlay);
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 0;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      width: 90%;
+      max-width: 1000px;
+      display: flex;
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      backdrop-filter: blur(10px);
+    }
+
+    .left, .right {
+      flex: 1;
+      padding: 60px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .left {
+      background-color: rgba(30, 30, 47, 0.7);
+    }
+
+    .left h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      color: var(--primary);
+    }
+
+    .left p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+    }
+
+    .right {
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .btn {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: 15px 35px;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      margin: 10px 0;
+      transition: 0.3s ease;
+      width: 200px;
+      text-align: center;
+    }
+
+    .btn:hover {
+      background-color: #e36800;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="left">
+      <h1>TaskFlow</h1>
+      <p>Organize sua vida com eficiência. Gerencie tarefas, ganhe produtividade e mantenha o foco no que realmente importa.</p>
+    </div>
+    <div class="right">
+      <a href="/login" class="btn">Login</a>
+      <a href="/register" class="btn">Registre-se</a>
+    </div>
+  </div>
+</body>
+</html>

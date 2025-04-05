@@ -1,11 +1,11 @@
 from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
 import os
 from dotenv import load_dotenv
-
-db = SQLAlchemy()
+from app.auth import auth_bp
+from app.extensions import db, migrate, bcrypt
 
 def create_app():
+
     # Instanciando a classe Flask
     app = Flask(__name__)
 
@@ -17,6 +17,10 @@ def create_app():
 
     # Inicializando o app (instancia Flask) com a extensão
     db.init_app(app)
+    migrate.init_app(app, db)
+    bcrypt.init_app(app)
+
+    app.register_blueprint(auth_bp)
 
     with app.app_context():
         from . import models
