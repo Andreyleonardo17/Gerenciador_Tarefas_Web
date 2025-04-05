@@ -4,10 +4,6 @@ from app.extensions import db
 
 auth_bp = Blueprint('auth', __name__)
 
-@auth_bp.route("/", methods=["GET"])
-def home():
-    return render_template('home.html')
-
 @auth_bp.route("/register", methods=['GET', 'POST'])
 def register():
     if request.method == 'GET':
