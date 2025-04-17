@@ -116,6 +116,22 @@
       background-color: #e36800;
       transform: scale(1.03);
     }
+
+    .login-link {
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    .login-link a {
+      color: var(--primary);
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .login-link a:hover {
+      text-decoration: underline;
+      color: #e36800;
+    }
   </style>
 </head>
 <body>
@@ -153,6 +169,10 @@
 
       <input type="submit" value="Cadastrar">
     </form>
+
+    <div class="login-link">
+      Já tem conta? <a href="/login">Entrar</a>
+    </div>
   </div>
 
   <script>
@@ -161,7 +181,6 @@
       const isVisible = field.type === "text";
       field.type = isVisible ? "password" : "text";
 
-      // alternar entre olho aberto e cortado
       icon.innerHTML = isVisible
         ? `<path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/>`
         : `<path d="M17.94 17.94A10.94 10.94 0 0 1 12 19c-7 0-11-7-11-7a21.57 21.57 0 0 1 5.17-5.57M9.88 9.88A3 3 0 0 1 14.12 14.12M1 1l22 22"/>`;

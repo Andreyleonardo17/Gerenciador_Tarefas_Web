@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Até logo!</title>
+  <style>
+    :root {
+      --primary: #ff7a00;
+      --secondary: #1e1e2f;
+      --light: #ffffff;
+      --overlay: rgba(0, 0, 0, 0.6);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      color: var(--light);
+      background-image: url('https://images.unsplash.com/photo-1521790945508-bf2a36314e85');
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: center;
+    }
+
+    .overlay {
+      background-color: var(--overlay);
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 0;
+    }
+
+    .form-container {
+      position: center;
+      z-index: 1;
+      background-color: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 40px;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: var(--primary);
+    }
+
+    form {
+      display: flex;
+      flex-direction: center;
+    }
+
+    label {
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    .input-group {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+
+     .btn {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: 15px 35px;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      margin: 0px 0;
+      transition: 0.3s ease;
+      width: 200px;
+      text-align: center;
+    }
+
+     .button-wrapper {
+       display: flex;
+       justify-content: center;
+    }
+
+
+      .btn:hover {
+      background-color: #e36800;
+      transform: scale(1.05);
+    }
+
+
+  </style>
+</head>
+<body>
+  <div class="overlay"></div>
+  <div class="form-container">
+    <h1>Volte sempre!</h1>
+    <div class="button-wrapper">
+      <a href="/login" class="btn">Home</a>
+    </div>
+  </div>
+
+  <script>
+    function togglePassword(id, icon) {
+      const field = document.getElementById(id);
+      const isVisible = field.type === "text";
+      field.type = isVisible ? "password" : "text";
+
+      // alternar entre olho aberto e cortado
+      icon.innerHTML = isVisible
+        ? `<path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/>`
+        : `<path d="M17.94 17.94A10.94 10.94 0 0 1 12 19c-7 0-11-7-11-7a21.57 21.57 0 0 1 5.17-5.57M9.88 9.88A3 3 0 0 1 14.12 14.12M1 1l22 22"/>`;
+    }
+  </script>
+</body>
+</html>

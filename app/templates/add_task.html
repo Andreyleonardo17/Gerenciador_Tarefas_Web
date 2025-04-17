@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Criar Tarefa - TaskFlow</title>
+  <style>
+    :root {
+      --primary: #ff7a00;
+      --secondary: #1e1e2f;
+      --light: #ffffff;
+      --overlay: rgba(0, 0, 0, 0.6);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      color: var(--light);
+      background-image: url('https://images.unsplash.com/photo-1521790945508-bf2a36314e85');
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .overlay {
+      background-color: var(--overlay);
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 0;
+    }
+
+    .form-container {
+      position: relative;
+      z-index: 1;
+      background-color: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 40px;
+      width: 90%;
+      max-width: 450px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: var(--primary);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+    }
+
+    input[type="text"],
+    textarea {
+      padding: 10px;
+      width: 100%;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: var(--light);
+      resize: none;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: #ccc;
+    }
+
+    .button-group {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .btn {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: 12px;
+      font-size: 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s ease;
+      width: 100%;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      background-color: #e36800;
+      transform: scale(1.03);
+    }
+
+    .btn.cancel {
+      background-color: #888;
+    }
+
+    .btn.cancel:hover {
+      background-color: #666;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="overlay"></div>
+  <div class="form-container">
+    <h1>Nova Task</h1>
+    <form action="" method="post">
+      <label for="titulo">Título:</label>
+      <div class="input-group">
+        <input type="text" id="titulo" name="titleForm" placeholder="Título da sua tarefa" required>
+      </div>
+
+      <label for="descricao">Descrição:</label>
+      <div class="input-group">
+        <textarea id="descricao" name="descriptionForm" placeholder="Descrição detalhada" rows="3"></textarea>
+      </div>
+
+      <div class="button-group">
+        <input type="submit" class="btn" value="Adicionar">
+        <a href="/tarefas" class="btn cancel">Cancelar</a>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
