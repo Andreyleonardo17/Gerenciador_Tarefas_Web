@@ -39,13 +39,12 @@ def login():
         senha = str(request.form['senhaForm'])
 
         user = db.session.query(User).filter_by(email=email).first()
-        if user:
-            if bcrypt.check_password_hash(user.password, senha):
-                login_user(user)
-                return redirect(url_for('routes.task'))
+        if user and bcrypt.check_password_hash(user.password, senha):
+            login_user(user)
+            return redirect(url_for('routes.task'))
 
 
-@auth_bp.route("/logout", methods=['GET'])
+@auth_bp.route("/logout", methods=['POST'])
 @login_required
 def logout():
     logout_user()

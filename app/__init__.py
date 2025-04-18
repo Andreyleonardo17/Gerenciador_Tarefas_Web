@@ -1,5 +1,7 @@
 from flask import Flask
 from dotenv import load_dotenv
+
+from app.api import api_bp
 from app.extensions import db, migrate, bcrypt, login_manager
 import os
 
@@ -35,6 +37,8 @@ def create_app():
     app.register_blueprint(auth_bp)
 
     app.register_blueprint(routes_bp)
+
+    app.register_blueprint(api_bp)
 
     with app.app_context():
         from . import models

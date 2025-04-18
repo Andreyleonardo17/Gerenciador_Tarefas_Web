@@ -1,5 +1,4 @@
 from os import abort
-
 from flask import Blueprint, render_template, request, redirect, url_for
 from app.models import User, Task
 from flask_login import login_required, current_user
